@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingFlow from '../components/BookingFlow.tsx';
+---
+
+<Layout title="Host a Meetup" description="Book a card-making meetup in your town. Choose a date, time, and venue — we'll help you make it happen.">
+
+    <section class="section">
+        <div class="container">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-10">
+                    <h1 class="font-display text-ink mb-3">Host a Card-Making Meetup</h1>
+                    <p class="text-ink-muted text-lg leading-relaxed">
+                        Gather your neighbours, your class, or your book club and make cards together in your town. Pick a date and we'll take care of getting the cards to seniors who need them.
+                    </p>
+                </div>
+
+                <BookingFlow client:load />
+            </div>
+        </div>
+    </section>
+
+</Layout>

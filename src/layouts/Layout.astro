@@ -1,34 +1,37 @@
 ---
-import '../../src/styles/globals.css';
+import '../styles/globals.css';
 import '@fontsource-variable/inter/wght.css';
+import '@fontsource-variable/playfair-display/wght.css';
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import playfairWoff2 from '@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
     title: string;
+    description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = 'Hello by Hand — handwritten cards made by you, delivered with love to seniors in our community.' } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>{title}</title>
+        <title>{title} | Hello by Hand</title>
+        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
+        <link rel="preload" as="font" type="font/woff2" href={playfairWoff2} crossorigin />
     </head>
-    <body class="antialiased text-white bg-complementary">
-        <div class="flex flex-col min-h-screen px-6 bg-noise sm:px-12">
-            <div class="flex flex-col w-full max-w-5xl mx-auto grow">
-                <Header />
-                <main class="grow"><slot /></main>
-                <Footer />
-            </div>
+    <body class="antialiased text-ink bg-cream">
+        <div class="flex flex-col min-h-screen">
+            <Header />
+            <main class="grow"><slot /></main>
+            <Footer />
         </div>
     </body>
 </html>

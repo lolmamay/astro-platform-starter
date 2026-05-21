@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <rect x="8" y="18" width="44" height="34" rx="5" fill="#4AADE8"/>
+  <path d="M8 24 L30 38 L52 24" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <circle cx="16" cy="10" r="3" fill="#FF4D8D" opacity="0.7"/>
+  <circle cx="28" cy="5" r="4" fill="#FF4D8D" opacity="0.85"/>
+  <circle cx="42" cy="9" r="2.5" fill="#4AADE8" opacity="0.6"/>
+  <text x="72" y="38" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#4AADE8">Hello</text>
+  <text x="72" y="62" font-family="Georgia, serif" font-size="20" fill="#4AADE8">by </text>
+  <text x="96" y="62" font-family="Georgia, serif" font-size="20" font-style="italic" fill="#FF4D8D">Hand</text>
+</svg>

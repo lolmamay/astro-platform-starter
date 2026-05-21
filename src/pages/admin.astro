@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdminDashboard from '../components/AdminDashboard.tsx';
+---
+
+<Layout title="Admin" description="Hello by Hand admin dashboard.">
+    <section class="section">
+        <div class="container">
+            <AdminDashboard client:load />
+        </div>
+    </section>
+</Layout>

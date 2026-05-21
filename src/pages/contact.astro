@@ -1,0 +1,73 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.tsx';
+---
+
+<Layout title="Contact" description="Get in touch with Hello by Hand — questions, ideas, partnerships, or just to say hello.">
+
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+    </form>
+
+    <section class="section">
+        <div class="container">
+            <div class="max-w-2xl mb-12">
+                <h1 class="font-display text-ink mb-4">Get in Touch</h1>
+                <p class="text-xl text-ink-muted leading-relaxed">
+                    Questions? Ideas? Want to volunteer, partner with us, or bring Hello by Hand to your community? We'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="font-display text-xl text-ink mb-6">Contact Info</h2>
+
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-xs uppercase tracking-widest font-semibold text-ink-muted mb-1.5">Email</p>
+                            <a href="mailto:hello@hellobyhand.org" class="text-brand-blue font-medium no-underline hover:underline">
+                                hello@hellobyhand.org
+                            </a>
+                        </div>
+
+                        <div>
+                            <p class="text-xs uppercase tracking-widest font-semibold text-ink-muted mb-1.5">Mailing Address</p>
+                            <address class="not-italic text-ink leading-relaxed">
+                                Hello by Hand<br />
+                                [Street Address]<br />
+                                [City, State ZIP]
+                            </address>
+                        </div>
+
+                        <div>
+                            <p class="text-xs uppercase tracking-widest font-semibold text-ink-muted mb-2">Follow Along</p>
+                            <div class="flex gap-4">
+                                <a href="https://instagram.com/hellobyhand" target="_blank" rel="noopener" class="text-sm text-ink-muted hover:text-brand-pink no-underline transition-colors font-medium">
+                                    Instagram
+                                </a>
+                                <a href="https://facebook.com/hellobyhand" target="_blank" rel="noopener" class="text-sm text-ink-muted hover:text-brand-blue no-underline transition-colors font-medium">
+                                    Facebook
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 bg-brand-pink/5 rounded-2xl border border-brand-pink/20 p-6">
+                        <p class="font-semibold text-ink mb-1">Want to host a meetup?</p>
+                        <p class="text-sm text-ink-muted mb-4 leading-relaxed">Skip the form &mdash; book your card-making meetup directly and we'll coordinate with you from there.</p>
+                        <a href="/book" class="btn text-sm" style="--btn-py: 0.5rem; --btn-px: 1.25rem;">Book a Meetup</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl text-ink mb-6">Send a Message</h2>
+                    <ContactForm client:load />
+                </div>
+            </div>
+        </div>
+    </section>
+
+</Layout>
