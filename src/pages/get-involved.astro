@@ -1,0 +1,130 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import EventCard from '../components/EventCard.astro';
+import events from '../data/events.json';
+---
+
+<Layout title="Get Involved" description="Come to a card-making event, host your own meetup, or mail cards in — every card you write makes a real difference to a senior in our community.">
+
+    <!-- Hero -->
+    <section class="section">
+        <div class="container">
+            <h1 class="font-display text-ink mb-4">Get Involved</h1>
+            <p class="text-xl text-ink-muted max-w-2xl leading-relaxed">
+                Whether you come to one of our events, host your own meetup in your town, or make a card at home and send it in &mdash; every card you write makes a real difference.
+            </p>
+        </div>
+    </section>
+
+    <!-- Two pathways -->
+    <section class="bg-cream-dark py-14 sm:py-20">
+        <div class="container">
+            <h2 class="font-display text-ink text-center mb-10">Two Ways to Participate</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl p-8 border-t-4 border-brand-blue shadow-sm">
+                    <div class="text-3xl mb-4">🗓️</div>
+                    <h3 class="font-display text-xl text-ink mb-3">Attend or Host an Event</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed mb-4">
+                        Come to one of our card-making gatherings &mdash; all supplies provided, all ages welcome. Or gather your own community and host a meetup in your town.
+                    </p>
+                    <ul class="text-sm text-ink-muted space-y-1.5 mb-6 list-none p-0">
+                        <li class="flex gap-2"><span class="text-brand-blue">✓</span> No experience needed</li>
+                        <li class="flex gap-2"><span class="text-brand-blue">✓</span> Supplies provided at our events</li>
+                        <li class="flex gap-2"><span class="text-brand-blue">✓</span> Great for families, schools &amp; groups</li>
+                        <li class="flex gap-2"><span class="text-brand-blue">✓</span> Host in your own town, your own way</li>
+                    </ul>
+                    <div class="flex gap-3 flex-wrap">
+                        <a href="#events" class="btn btn-blue">See Events</a>
+                        <a href="/book" class="btn btn-outline">Host a Meetup</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 border-t-4 border-brand-pink shadow-sm">
+                    <div class="text-3xl mb-4">📬</div>
+                    <h3 class="font-display text-xl text-ink mb-3">Make &amp; Mail a Card</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed mb-4">
+                        Can't make it to an event? That's okay! Make a card at home &mdash; use our template or create your own &mdash; and mail it to us. We handle the rest.
+                    </p>
+                    <ul class="text-sm text-ink-muted space-y-1.5 mb-6 list-none p-0">
+                        <li class="flex gap-2"><span class="text-brand-pink">✓</span> Do it on your own schedule</li>
+                        <li class="flex gap-2"><span class="text-brand-pink">✓</span> Free printable template available</li>
+                        <li class="flex gap-2"><span class="text-brand-pink">✓</span> Use any paper, cardstock, or materials</li>
+                        <li class="flex gap-2"><span class="text-brand-pink">✓</span> Perfect for classrooms &amp; home crafters</li>
+                    </ul>
+                    <a href="#mail" class="btn">Get Mailing Instructions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event listings -->
+    <section id="events" class="section">
+        <div class="container">
+            <h2 class="font-display text-ink mb-2">Upcoming Events</h2>
+            <p class="text-ink-muted mb-8">Drop in and make cards with us &mdash; everyone welcome.</p>
+            <div class="space-y-4">
+                {events.map((event) => (
+                    <EventCard
+                        date={event.date}
+                        title={event.title}
+                        location={event.location}
+                        time={event.time}
+                        description={event.description}
+                    />
+                ))}
+            </div>
+            <div class="mt-10 p-6 bg-brand-blue/5 rounded-2xl border border-brand-blue/20 text-center">
+                <p class="text-ink-muted text-sm">Want to host your own card-making meetup in your town?</p>
+                <a href="/book" class="btn btn-blue mt-3">Book Your Meetup</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mail-in instructions -->
+    <section id="mail" class="bg-cream-dark py-14 sm:py-20">
+        <div class="container">
+            <div class="max-w-2xl">
+                <h2 class="font-display text-ink mb-3">Sending Cards by Mail</h2>
+                <p class="text-ink-muted mb-8 leading-relaxed">
+                    Making a card at home? Here's how to get it to us so we can deliver it to a senior who needs it.
+                </p>
+
+                <ol class="space-y-6 list-none p-0">
+                    <li class="flex gap-5">
+                        <div class="shrink-0 w-9 h-9 rounded-full bg-brand-pink text-white font-bold flex items-center justify-center text-sm">1</div>
+                        <div>
+                            <p class="font-semibold text-ink">Download our card template</p>
+                            <p class="text-ink-muted text-sm mt-1 leading-relaxed">Print it on any paper or cardstock. Or skip the template and create your own &mdash; any size, any style.</p>
+                            <a href="/downloads/hello-by-hand-template.pdf" download class="btn btn-outline mt-3 text-sm" style="--btn-py: 0.5rem; --btn-px: 1rem;">Download Template (PDF)</a>
+                        </div>
+                    </li>
+                    <li class="flex gap-5">
+                        <div class="shrink-0 w-9 h-9 rounded-full bg-brand-pink text-white font-bold flex items-center justify-center text-sm">2</div>
+                        <div>
+                            <p class="font-semibold text-ink">Write your message</p>
+                            <p class="text-ink-muted text-sm mt-1 leading-relaxed">A simple &ldquo;Hello, thinking of you&rdquo; is perfect. No need for anything long &mdash; just a warm, genuine note from the heart.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-5">
+                        <div class="shrink-0 w-9 h-9 rounded-full bg-brand-pink text-white font-bold flex items-center justify-center text-sm">3</div>
+                        <div>
+                            <p class="font-semibold text-ink">Mail your card to us</p>
+                            <p class="text-ink-muted text-sm mt-1 leading-relaxed">Send your card to the address below. No need to seal it in an envelope &mdash; just fold it and add a stamp!</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="mt-10 inline-block bg-white border-2 border-parchment rounded-2xl px-8 py-6">
+                    <p class="text-xs uppercase tracking-widest text-ink-muted mb-2 font-semibold">Mailing Address</p>
+                    <address class="not-italic font-display text-ink text-lg leading-relaxed">
+                        Hello by Hand<br />
+                        [Street Address]<br />
+                        [City, State ZIP]
+                    </address>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</Layout>

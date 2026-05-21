@@ -1,0 +1,29 @@
+---
+interface Props {
+    date: string;
+    title: string;
+    location: string;
+    time: string;
+    description?: string;
+}
+
+const { date, title, location, time, description } = Astro.props;
+
+const parts = date.split(' ');
+const month = parts[0].slice(0, 3).toUpperCase();
+const day = parts[1].replace(',', '');
+---
+
+<article class="flex gap-5 sm:gap-6 p-6 bg-white rounded-xl border border-parchment shadow-sm">
+    <div class="shrink-0 w-14 text-center">
+        <div class="bg-brand-pink text-white rounded-lg py-2 px-1">
+            <div class="text-xs font-semibold uppercase leading-none mb-1">{month}</div>
+            <div class="font-display text-2xl font-bold leading-none">{day}</div>
+        </div>
+    </div>
+    <div>
+        <h3 class="font-semibold text-ink text-lg leading-tight">{title}</h3>
+        <p class="text-ink-muted text-sm mt-1">{time} · {location}</p>
+        {description && <p class="text-ink-muted text-sm mt-2 leading-relaxed">{description}</p>}
+    </div>
+</article>

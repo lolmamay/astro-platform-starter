@@ -2,18 +2,29 @@
 
 @theme {
     --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
-    --color-primary-content: #101828;
-    --color-complementary: #355c7d;
-    --background-image-noise: linear-gradient(
-            to bottom,
-            color-mix(in oklab, var(--color-gray-950) 0%, transparent),
-            color-mix(in oklab, var(--color-gray-950) 100%, transparent)
-        ),
-        url('/images/noise.png');
+    --font-display: 'Playfair Display Variable', Georgia, 'Times New Roman', serif;
+
+    --color-brand-blue: #4AADE8;
+    --color-brand-blue-dark: #2E8FC9;
+    --color-brand-pink: #FF4D8D;
+    --color-brand-pink-dark: #E0306F;
+    --color-cream: #FDF8F2;
+    --color-cream-dark: #F5EDE0;
+    --color-parchment: #EDE0CC;
+    --color-ink: #2C1810;
+    --color-ink-light: #5C3D2E;
+    --color-ink-muted: #8B6B5A;
 }
 
 @layer base {
+    body {
+        @apply font-sans text-ink bg-cream;
+    }
+
+    h1, h2, h3 {
+        @apply font-display;
+    }
+
     h1 {
         @apply text-4xl font-bold tracking-tight sm:text-5xl;
     }
@@ -25,54 +36,54 @@
     a:not(.btn) {
         @apply underline transition hover:opacity-80;
     }
-
-    pre {
-        @apply p-6 overflow-x-auto rounded-lg;
-    }
-
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
-        font-size: 0.9em;
-    }
 }
 
 @layer components {
-    .markdown {
-        > * {
-            @apply my-6;
-        }
-
-        :where(h1, h2) {
-            @apply mt-12 mb-6;
-        }
-
-        > :first-child {
-            @apply mt-0;
-        }
-
-        > :last-child {
-            @apply mb-0;
-        }
-    }
-
     .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
-        border-radius: var(--btn-border-radius, 0.25rem);
+        @apply inline-flex items-center justify-center gap-2 bg-brand-pink text-white cursor-pointer text-center font-semibold no-underline transition-colors rounded-full;
+        padding: var(--btn-py, 0.75rem) var(--btn-px, 1.5rem);
+        font-size: var(--btn-font-size, 0.9rem);
 
         &:hover {
-            @apply bg-primary/85;
+            @apply bg-brand-pink-dark;
         }
 
         &:disabled {
-            @apply text-gray-400 bg-gray-700;
+            @apply text-ink-muted bg-parchment cursor-not-allowed;
         }
     }
 
     .btn-lg {
-        --btn-font-size: 1.125rem;
-        --btn-px: 1.5rem;
-        --btn-py: 1.125rem;
+        --btn-font-size: 1.0625rem;
+        --btn-px: 2rem;
+        --btn-py: 0.9375rem;
+    }
+
+    .btn-outline {
+        @apply bg-transparent text-brand-blue border-2 border-brand-blue;
+
+        &:hover {
+            @apply bg-brand-blue text-white;
+        }
+    }
+
+    .btn-blue {
+        @apply bg-brand-blue text-white;
+
+        &:hover {
+            @apply bg-brand-blue-dark;
+        }
+    }
+
+    .input {
+        @apply w-full rounded-xl border border-parchment bg-white px-4 py-3 text-ink placeholder:text-ink-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition;
+    }
+
+    .section {
+        @apply py-16 sm:py-24;
+    }
+
+    .container {
+        @apply max-w-5xl mx-auto px-6 sm:px-12;
     }
 }

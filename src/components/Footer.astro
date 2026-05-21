@@ -1,9 +1,47 @@
 ---
-
 ---
 
-<footer class="pt-16 pb-12 sm:pt-24 sm:pb-16">
-    <p class="text-sm">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="decoration-dashed text-primary underline-offset-8"> Astro on Netlify </a>
-    </p>
+<footer class="bg-cream-dark border-t border-parchment mt-16 sm:mt-24">
+    <div class="max-w-5xl mx-auto px-6 sm:px-12 py-12 sm:py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
+            <div>
+                <p class="font-display text-xl text-ink mb-2">Hello by Hand</p>
+                <p class="text-sm text-ink-muted leading-relaxed">
+                    Handwritten cards made by you,<br />delivered with love to seniors<br />in our community.
+                </p>
+            </div>
+
+            <div>
+                <p class="font-semibold text-ink mb-3 text-xs uppercase tracking-widest">Quick Links</p>
+                <ul class="space-y-2 text-sm list-none p-0 m-0">
+                    <li><a href="/get-involved" class="text-ink-muted hover:text-brand-blue no-underline transition-colors">Get Involved</a></li>
+                    <li><a href="/book" class="text-ink-muted hover:text-brand-blue no-underline transition-colors">Host a Meetup</a></li>
+                    <li><a href="/about" class="text-ink-muted hover:text-brand-blue no-underline transition-colors">About Us</a></li>
+                    <li><a href="/contact" class="text-ink-muted hover:text-brand-blue no-underline transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="font-semibold text-ink mb-3 text-xs uppercase tracking-widest">Send Your Cards</p>
+                <address class="not-italic text-sm text-ink-muted leading-relaxed">
+                    Hello by Hand<br />
+                    [Mailing Address]<br />
+                    [City, State ZIP]
+                </address>
+                <p class="text-sm text-ink-muted mt-3">
+                    <a href="mailto:hello@hellobyhand.org" class="text-brand-blue no-underline hover:underline">hello@hellobyhand.org</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-10 pt-8 border-t border-parchment flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p class="text-xs text-ink-muted">
+                &copy; {new Date().getFullYear()} Hello by Hand. Made with heart.
+            </p>
+            <div class="flex gap-4">
+                <a href="https://instagram.com/hellobyhand" class="text-xs text-ink-muted hover:text-brand-pink no-underline transition-colors" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://facebook.com/hellobyhand" class="text-xs text-ink-muted hover:text-brand-blue no-underline transition-colors" target="_blank" rel="noopener">Facebook</a>
+            </div>
+        </div>
+    </div>
 </footer>

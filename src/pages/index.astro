@@ -1,21 +1,128 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
+import StepCard from '../components/StepCard.astro';
+import events from '../data/events.json';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+const upcomingEvents = events.slice(0, 2);
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Home" description="Hello by Hand — handwritten cards made by anyone, delivered with love to seniors in your community.">
+
+    <!-- Hero -->
+    <section class="py-20 sm:py-32 text-center">
+        <div class="container">
+            <img src="/images/logo.svg" alt="Hello by Hand" class="h-24 sm:h-32 w-auto mx-auto mb-8" />
+            <h1 class="font-display text-5xl sm:text-7xl text-ink mb-6 leading-tight">
+                Make someone's day<br />
+                <span class="text-brand-pink">with a handwritten card.</span>
+            </h1>
+            <p class="text-xl text-ink-muted max-w-xl mx-auto mb-10 leading-relaxed">
+                Anyone can make a card. Every card gets delivered to a senior in our community who needs to know they're loved.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/get-involved" class="btn btn-lg">Get Involved</a>
+                <a href="/book" class="btn btn-lg btn-outline">Host a Meetup</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission pull-quote -->
+    <section class="bg-cream-dark py-16 sm:py-20">
+        <div class="container">
+            <blockquote class="text-center max-w-2xl mx-auto">
+                <p class="font-display italic text-2xl sm:text-3xl text-ink-light leading-relaxed">
+                    &ldquo;A handwritten note is one of the most personal things a person can do. We believe everyone deserves to receive one.&rdquo;
+                </p>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+        <div class="container">
+            <h2 class="font-display text-center text-ink mb-3">How It Works</h2>
+            <p class="text-center text-ink-muted mb-12 text-lg">Three simple steps &mdash; that's all it takes.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <StepCard
+                    number={1}
+                    icon="✉️"
+                    title="Make a Card"
+                    description="Come to one of our events, host your own meetup in your town, or make one at home and mail it in. All ages and skill levels welcome."
+                />
+                <StepCard
+                    number={2}
+                    icon="💛"
+                    title="Write From the Heart"
+                    description="A few kind words go a long way. Say hello, share a memory, or simply let them know someone is thinking of them."
+                />
+                <StepCard
+                    number={3}
+                    icon="🏡"
+                    title="We Deliver"
+                    description="Cards are collected and hand-delivered to seniors in care homes and community centers who need a little brightness in their day."
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming events teaser -->
+    <section class="bg-cream-dark py-16 sm:py-20">
+        <div class="container">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h2 class="font-display text-ink mb-1">Upcoming Events</h2>
+                    <p class="text-ink-muted">Come make cards with us.</p>
+                </div>
+                <a href="/get-involved#events" class="text-sm font-medium text-brand-blue no-underline hover:underline hidden sm:block">View all &rarr;</a>
+            </div>
+            <div class="space-y-4">
+                {upcomingEvents.map((event) => {
+                    const parts = event.date.split(' ');
+                    const month = parts[0].slice(0, 3).toUpperCase();
+                    const day = parts[1].replace(',', '');
+                    return (
+                        <div class="bg-white rounded-xl border border-parchment shadow-sm p-5 flex gap-5 items-start">
+                            <div class="shrink-0 w-14 text-center">
+                                <div class="bg-brand-pink text-white rounded-lg py-2 px-1">
+                                    <div class="text-xs font-semibold uppercase leading-none mb-1">{month}</div>
+                                    <div class="font-display text-2xl font-bold leading-none">{day}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-ink">{event.title}</p>
+                                <p class="text-sm text-ink-muted mt-0.5">{event.time} &middot; {event.location}</p>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+            <a href="/get-involved#events" class="sm:hidden text-sm font-medium text-brand-blue block mt-5 no-underline hover:underline">View all events &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Host a meetup CTA -->
+    <section class="py-16 sm:py-20 bg-brand-blue text-white text-center">
+        <div class="container">
+            <h2 class="font-display text-white mb-3">Want to host a meetup in your town?</h2>
+            <p class="text-white/80 text-lg max-w-lg mx-auto mb-8">
+                Gather your neighbours, your class, or your book club &mdash; and make cards together. We'll collect them and deliver them to seniors who need them.
+            </p>
+            <a href="/book" class="btn btn-lg bg-white text-brand-blue hover:bg-cream">Book Your Meetup</a>
+        </div>
+    </section>
+
+    <!-- Mail-in CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="bg-cream-dark rounded-3xl p-10 sm:p-14 text-center border border-parchment">
+                <div class="text-4xl mb-4">📬</div>
+                <h2 class="font-display text-ink mb-3">Can't make it to an event?</h2>
+                <p class="text-ink-muted text-lg max-w-md mx-auto mb-8">
+                    No problem. Make a card at home and mail it to us &mdash; we'll make sure it gets delivered.
+                </p>
+                <a href="/get-involved#mail" class="btn btn-lg">Get Mailing Instructions</a>
+            </div>
+        </div>
+    </section>
+
 </Layout>

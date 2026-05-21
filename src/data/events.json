@@ -1,0 +1,23 @@
+[
+    {
+        "date": "June 14, 2026",
+        "title": "Card-Making Morning",
+        "location": "Community Center, Room 2",
+        "time": "10:00 AM – 12:00 PM",
+        "description": "All supplies provided. Drop in anytime — kids, families, and individuals welcome!"
+    },
+    {
+        "date": "June 28, 2026",
+        "title": "Drop-In Crafting",
+        "location": "Main Street Library, Meeting Room",
+        "time": "1:00 PM – 3:00 PM",
+        "description": "Bring your creativity or use our templates. Cards get delivered the following week."
+    },
+    {
+        "date": "July 12, 2026",
+        "title": "Summer Card-Making Party",
+        "location": "Riverside Park Pavilion",
+        "time": "11:00 AM – 2:00 PM",
+        "description": "A fun outdoor session for all ages. Light refreshments provided."
+    }
+]
