@@ -1,10 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
-  <rect x="8" y="18" width="44" height="34" rx="5" fill="#4AADE8"/>
-  <path d="M8 24 L30 38 L52 24" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
-  <circle cx="16" cy="10" r="3" fill="#FF4D8D" opacity="0.7"/>
-  <circle cx="28" cy="5" r="4" fill="#FF4D8D" opacity="0.85"/>
-  <circle cx="42" cy="9" r="2.5" fill="#4AADE8" opacity="0.6"/>
-  <text x="72" y="38" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#4AADE8">Hello</text>
-  <text x="72" y="62" font-family="Georgia, serif" font-size="20" fill="#4AADE8">by </text>
-  <text x="96" y="62" font-family="Georgia, serif" font-size="20" font-style="italic" fill="#FF4D8D">Hand</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" fill="none">
+  <!-- Envelope illustration -->
+  <g transform="translate(0, 8)">
+    <!-- Envelope body -->
+    <rect x="4" y="18" width="52" height="38" rx="4" fill="#4AADE8"/>
+    <!-- Envelope flap lines -->
+    <path d="M4 22 L30 40 L56 22" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- Heart on envelope -->
+    <path d="M26 30 C26 27 22 25 20 28 C18 25 14 27 14 30 C14 33 20 37 20 37 C20 37 26 33 26 30Z" fill="#FF4D8D" opacity="0.9" transform="translate(10, -2)"/>
+    <!-- Floating hearts -->
+    <circle cx="14" cy="10" r="3.5" fill="#FF4D8D" opacity="0.75"/>
+    <circle cx="27" cy="4" r="4.5" fill="#FF4D8D" opacity="0.9"/>
+    <circle cx="43" cy="8" r="3" fill="#4AADE8" opacity="0.65"/>
+    <!-- Small sparkle on largest heart -->
+    <circle cx="27" cy="3.5" r="1" fill="white" opacity="0.8"/>
+  </g>
+  <!-- "Hello" in large script-style serif -->
+  <text x="72" y="46" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700" font-style="italic" fill="#4AADE8" letter-spacing="-1">Hello</text>
+  <!-- "by" in pink -->
+  <text x="74" y="72" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#FF4D8D" font-style="italic">by </text>
+  <!-- "Hand" in blue italic -->
+  <text x="104" y="72" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="600" font-style="italic" fill="#4AADE8">Hand</text>
 </svg>
