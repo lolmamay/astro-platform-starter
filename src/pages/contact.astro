@@ -1,16 +1,9 @@
 ---
-export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.tsx';
 ---
 
 <Layout title="Contact" description="Get in touch with Hello by Hand — questions, ideas, partnerships, or just to say hello.">
-
-    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-    </form>
 
     <section class="section">
         <div class="container">

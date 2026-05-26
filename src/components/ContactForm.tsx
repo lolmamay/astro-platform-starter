@@ -11,10 +11,14 @@ export default function ContactForm() {
         const form = e.currentTarget;
         const data = new FormData(form);
         try {
-            const res = await fetch('/', {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: data.get('name'),
+                    email: data.get('email'),
+                    message: data.get('message'),
+                }),
             });
             if (res.ok) {
                 setStatus('success');
@@ -38,19 +42,7 @@ export default function ContactForm() {
     }
 
     return (
-        <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-            className="space-y-5"
-        >
-            <input type="hidden" name="form-name" value="contact" />
-            <div className="hidden">
-                <label>Don't fill this out: <input name="bot-field" /></label>
-            </div>
-
+        <form onSubmit={handleSubmit} className="space-y-5">
             <div>
                 <label className="block text-sm font-medium text-ink mb-1.5" htmlFor="contact-name">Your name</label>
                 <input id="contact-name" name="name" type="text" required placeholder="Jane Smith" className="input" />
